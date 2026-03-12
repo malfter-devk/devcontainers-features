@@ -1,0 +1,16 @@
+{
+    "name": "opencode",
+    "id": "opencode",
+    "version": "1.0.0",
+    "description": "Installs the opencode CLI — an AI coding agent for the terminal.",
+    "documentationURL": "https://opencode.ai/docs",
+    "licenseURL": "https://github.com/anomalyco/opencode/blob/dev/LICENSE",
+    "keywords": ["opencode", "ai", "coding", "cli", "agent"],
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version of opencode to install. Use 'latest' for the latest stable release, or a semver string like '1.2.24'."
+        }
+    }
+}
