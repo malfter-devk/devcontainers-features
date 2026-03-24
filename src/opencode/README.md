@@ -1,11 +1,9 @@
 
 # opencode (opencode)
 
-Installs the [opencode](https://opencode.ai) CLI — an AI coding agent for the terminal.
+Installs the opencode CLI — an AI coding agent for the terminal.
 
 ## Example Usage
-
-Install the latest stable release (default):
 
 ```json
 "features": {
@@ -13,21 +11,11 @@ Install the latest stable release (default):
 }
 ```
 
-Install a specific version:
-
-```json
-"features": {
-    "ghcr.io/malfter-devk/devcontainers-features/opencode:1": {
-        "version": "1.2.3"
-    }
-}
-```
-
 ## Options
 
-| Option ID | Description | Type | Default Value |
-|-----------|-------------|------|---------------|
-| version | Version of opencode to install. Use `latest` for the latest stable release, or a semver string like `1.2.24`. | string | `latest` |
+| Options Id | Description | Type | Default Value |
+|-----|-----|-----|-----|
+| version | Version of opencode to install. Use 'latest' for the latest stable release, or a semver string like '1.2.24'. | string | latest |
 
 ## Supported Operating Systems
 
@@ -68,6 +56,33 @@ The script is **idempotent**: if the requested version is already installed it e
 - This feature requires network access to `github.com` and `api.github.com` at container build time.
 - The binary is installed as `root` (the default for devcontainer feature scripts).
 
+## Recommended Mounts
+
+opencode stores its configuration, sessions, and API keys in `~/.config/opencode/` on Linux.
+Mount this directory from the host so that your sessions and settings persist across container rebuilds:
+
+```jsonc
+"mounts": [
+  // The target paths below use /home/vscode, which is the home directory of the default
+  // devcontainer user. Adjust this to match the remoteUser or containerUser configured
+  // in your devcontainer.json (e.g. /root for a root-based container).
+  "source=${localEnv:HOME}/.config/opencode,target=/home/vscode/.config/opencode,type=bind,consistency=cached",
+  "source=${localEnv:HOME}/.local/share/opencode,target=/home/vscode/.local/share/opencode,type=bind",
+  "source=${localEnv:HOME}/.local/state/opencode,target=/home/vscode/.local/state/opencode,type=bind",
+]
+```
+
+## Recommended VS Code Settings
+
+Add this to your `.devcontainer/devcontainer.json` (via `customizations.vscode.settings`) or your local `settings.json`:
+
+```jsonc
+// Let Ctrl+P pass through to terminal apps (e.g. opencode)
+// instead of opening VS Code Quick Open when the terminal has focus.
+"terminal.integrated.commandsToSkipShell": ["-workbench.action.quickOpen"]
+```
+
+
 ---
 
-_Note: This file was generated from [devcontainer-feature.json](devcontainer-feature.json). Add additional notes to a `NOTES.md`._
+_Note: This file was auto-generated from the [devcontainer-feature.json](https://github.com/malfter-devk/devcontainers-features/blob/main/src/opencode/devcontainer-feature.json).  Add additional notes to a `NOTES.md`._
