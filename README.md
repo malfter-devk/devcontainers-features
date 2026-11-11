@@ -36,6 +36,8 @@ To install a specific version:
 |-----------|--------|------------|-----------------------------------------------------------------------------|
 | `version` | string | `"latest"` | Version of opencode to install. Use `"latest"` or a semver string like `"1.2.23"`. |
 
+`"latest"` follows GitHub's [`/releases/latest`](https://github.com/anomalyco/opencode/releases/latest) marker; it does not necessarily mean the highest available major version. GitHub currently marks a v1 release as latest, so specify an exact v2 version if you want to install v2.
+
 #### Supported Platforms
 
 | OS                | Supported |
