@@ -15,7 +15,7 @@ Installs the opencode CLI — an AI coding agent for the terminal.
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| version | Version of opencode to install. Use 'latest' for the latest stable release, or a semver string like '1.2.24'. | string | latest |
+| version | Version of opencode to install. Use 'latest' for GitHub's release marked latest (not necessarily the highest major version), or specify an exact version to install v2. | string | latest |
 
 ## Supported Operating Systems
 
@@ -53,6 +53,7 @@ The script is **idempotent**: if the requested version is already installed it e
 
 ## Notes
 
+- The `latest` option follows GitHub's [`/releases/latest`](https://github.com/anomalyco/opencode/releases/latest) marker, not the highest available major version. GitHub currently marks a v1 release as latest; specify an exact v2 version to install v2.
 - This feature requires network access to `github.com` and `api.github.com` at container build time.
 - The binary is installed as `root` (the default for devcontainer feature scripts).
 
