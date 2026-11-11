@@ -23,11 +23,19 @@
             }
         }
     },
-    "install_pinned_version": {
+    "install_pinned_version_v1": {
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
             "opencode": {
                 "version": "1.2.23"
+            }
+        }
+    },
+    "install_pinned_version_v2": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "opencode": {
+                "version": "2.2.7"
             }
         }
     }

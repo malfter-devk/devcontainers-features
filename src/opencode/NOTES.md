@@ -34,6 +34,7 @@ The script is **idempotent**: if the requested version is already installed it e
 
 ## Notes
 
+- The `latest` option follows GitHub's [`/releases/latest`](https://github.com/anomalyco/opencode/releases/latest) marker, not the highest available major version. GitHub currently marks a v1 release as latest; specify an exact v2 version to install v2.
 - This feature requires network access to `github.com` and `api.github.com` at container build time.
 - The binary is installed as `root` (the default for devcontainer feature scripts).
 
