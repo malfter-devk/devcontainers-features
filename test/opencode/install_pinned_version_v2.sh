@@ -1,8 +1,8 @@
 #!/bin/bash
 # -----------------------------------------------------------------------------
-# Scenario test: install_pinned_version
+# Scenario test: install_pinned_version_v2
 # Verifies that the 'opencode' binary is installed at exactly the requested
-# pinned version (1.2.23) and not a different release.
+# pinned version (2.2.7) and not a different release.
 # -----------------------------------------------------------------------------
 set -e
 
@@ -17,7 +17,7 @@ check "opencode binary is executable at /usr/local/bin" \
 check "opencode --version returns a version string" \
     bash -c "opencode --version 2>&1 | grep -E '[0-9]+\.[0-9]+\.[0-9]+'"
 
-check "opencode is installed at the pinned version 1.2.23" \
-    bash -c "opencode --version 2>&1 | grep -F '1.2.23'"
+check "opencode is installed at the pinned version 2.2.7" \
+    bash -c "opencode --version 2>&1 | grep -F '2.2.7'"
 
 reportResults
